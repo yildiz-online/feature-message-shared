@@ -24,11 +24,11 @@
 
 package be.yildizgames.engine.feature.message.protocol.mapper;
 
-import be.yildiz.common.collections.Lists;
-import be.yildiz.common.id.PlayerId;
 import be.yildizgames.common.mapping.BaseMapperTest;
+import be.yildizgames.common.model.PlayerId;
 import be.yildizgames.engine.feature.message.Message;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -37,7 +37,7 @@ import java.util.Collection;
 public class MessageListMapperTest extends BaseMapperTest<Collection<Message>> {
 
     public MessageListMapperTest() {
-        super(MessageListMapper.getInstance(), Lists.newList(
+        super(MessageListMapper.getInstance(), Arrays.asList(
                 new Message(PlayerId.valueOf(1), PlayerId.valueOf(2), "ok", 1, true),
                 new Message(PlayerId.valueOf(1), PlayerId.valueOf(4), "ok2", 1, true),
                 new Message(PlayerId.valueOf(1), PlayerId.valueOf(2), "ok3", 12, false)

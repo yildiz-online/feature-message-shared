@@ -24,7 +24,7 @@
 
 package be.yildizgames.engine.feature.message;
 
-import be.yildiz.common.id.PlayerId;
+import be.yildizgames.common.model.PlayerId;
 
 /**
  * Message sent from a player to another.
