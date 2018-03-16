@@ -22,22 +22,12 @@
  *
  */
 
-package be.yildizgames.engine.feature.message.protocol.mapper;
+module be.yildizgames.feature.message.shared {
 
-import be.yildizgames.common.model.PlayerId;
-import be.yildizgames.engine.feature.message.Message;
+    requires be.yildizgames.common.model;
+    requires be.yildizgames.common.mapping.model;
+    requires be.yildizgames.common.mapping;
 
-/**
- * @author Grégory Van den Borre
- */
-public class MessageMapperTest extends BaseMapperTest<Message> {
-
-    public MessageMapperTest() {
-        super(MessageMapper.getInstance(), new Message(
-                PlayerId.valueOf(2),
-                PlayerId.valueOf(8),
-                "my message #&@",
-                123,
-                true));
-    }
+    exports be.yildizgames.engine.feature.message;
+    exports be.yildizgames.engine.feature.message.protocol.mapper;
 }

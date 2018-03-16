@@ -24,7 +24,12 @@
 
 package be.yildizgames.engine.feature.message.protocol.mapper;
 
-import be.yildizgames.common.mapping.*;
+import be.yildizgames.common.mapping.BooleanMapper;
+import be.yildizgames.common.mapping.LongMapper;
+import be.yildizgames.common.mapping.MappingException;
+import be.yildizgames.common.mapping.ObjectMapper;
+import be.yildizgames.common.mapping.Separator;
+import be.yildizgames.common.mapping.model.PlayerIdMapper;
 import be.yildizgames.engine.feature.message.Message;
 
 /**
