@@ -1,23 +1,10 @@
-env:
-  global:
-    - secure: "zozTVFb3hwci7qGZ/7xzzcK9jduSAg0m5ib+PP6WOipYRcfvYG536hqyRCEJnB9EMgJsBFvFWMxAqhhzRwXer3W6XqyL2Vlr533q9cRgDS8EgV8cIwnmSZAWd8uB6FW7rFBaZtuzpEssI06ZVI7JOntgaWAhhbqBE4UemJeedRGnFQjxsiA/Foas5+7zWGdz+3zPRx1j3vFwdBn9/zVhrgwHFFyF9yfzW0v7slGkEehGxLJe6ZL9HPlPlJyirTo6X1W/QoXh9ZdYZL+G/XBFB9VdgW2ScCXNJfcEEzsxU49pJkcF3xr6KWFW2BdrKX2cAWv0EY7JkkrUFHRIfi7gGm+P8GuSnDQAQ6hYVLA5Ul9qBFxeum9y0w6dpFFMly5lbEkzJY9Nh2JgpQeWfl4znZoZ0EiPkPdlnsA4+L0bz6iLvyVep+nFXL28LzPEzfza/5Q20ctoVGonsKDQvxndRIVWuAaHM8OnvXYfmraFTqx3dypp8eA77wCydtCKomhUz6qWKTjcdUR7Icz4CzeNiHsiXL+uASCNBkB45gLcI8lscgeYZt+dGIywkhsyGIsiBhMNeXYUCnBcq8h897Q2mryg3oSwQoWCEEHUe90AeDJQ2Hx85cflbM5KvlbINP7xr4Kc4ATf4g9VR8sYkuFZR6k47uAdHa/u6rZzCfN4w1g="
+sudo: required
 
+services:
+  - docker
 
-language: java
-jdk:
-  - oraclejdk9
-
-addons:
-  coverity_scan:
-    project:
-      name: "yildiz-online/feature-message-shared"
-      description: "Build submitted via Travis CI"
-    notification_email: vandenborre.gregory@hotmail.fr
-    build_command_prepend: "mvn clean"
-    build_command:   "mvn -DskipTests=true compile -s settings.xml"
-    branch_pattern: master
+before_install:
+  - docker pull moussavdb/build-java
 
 script:
-  - mvn -V -B -s settings.xml test
-install:
-  - mvn -V -B -s settings.xml clean install
+  - docker run -v $PWD:/src -w /src moussavdb/build-java mvn -V -s settings.xml org.jacoco:jacoco-maven-plugin:prepare-agent clean install sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.login=$SONAR
