@@ -24,6 +24,7 @@
 
 package be.yildizgames.engine.feature.message.protocol.mapper;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.common.mapping.Separator;
 import org.junit.jupiter.api.Assertions;
@@ -64,12 +65,12 @@ public abstract class BaseMapperTest<T>{
 
     @Test
     void fromNull() throws MappingException {
-        Assertions.assertThrows(AssertionError.class, () -> mapper.from(null));
+        Assertions.assertThrows(ImplementationException.class, () -> mapper.from(null));
     }
 
     @Test
     void toNull() {
-        Assertions.assertThrows(AssertionError.class, () -> mapper.to(null));
+        Assertions.assertThrows(ImplementationException.class, () -> mapper.to(null));
     }
 
 }
