@@ -24,6 +24,7 @@
 
 package be.yildizgames.engine.feature.message.protocol.mapper;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.mapping.BooleanMapper;
 import be.yildizgames.common.mapping.LongMapper;
 import be.yildizgames.common.mapping.ObjectMapper;
@@ -56,7 +57,7 @@ public class MessageMapper implements ObjectMapper<Message> {
 
     @Override
     public Message from(String s) throws MappingException {
-        assert s != null;
+        ImplementationException.throwForNull(s);
         String[] v = s.split(Separator.VAR_SEPARATOR);
         try {
             return new Message(PlayerIdMapper.getInstance().from(v[0]),
@@ -74,7 +75,7 @@ public class MessageMapper implements ObjectMapper<Message> {
 
     @Override
     public String to(Message message) {
-        assert message != null;
+        ImplementationException.throwForNull(message);
         return PlayerIdMapper.getInstance().to(message.getSender())
                 + Separator.VAR_SEPARATOR
                 + PlayerIdMapper.getInstance().to(message.getReceiver())
