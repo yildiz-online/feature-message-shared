@@ -25,7 +25,6 @@
 package be.yildizgames.engine.feature.message.protocol.mapper;
 
 import be.yildizgames.common.mapping.CollectionMapper;
-import be.yildizgames.common.mapping.MappingException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.engine.feature.message.Message;
 

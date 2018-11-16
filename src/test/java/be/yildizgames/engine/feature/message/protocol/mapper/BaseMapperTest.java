@@ -24,7 +24,6 @@
 
 package be.yildizgames.engine.feature.message.protocol.mapper;
 
-import be.yildizgames.common.mapping.MappingException;
 import be.yildizgames.common.mapping.ObjectMapper;
 import be.yildizgames.common.mapping.Separator;
 import org.junit.jupiter.api.Assertions;
