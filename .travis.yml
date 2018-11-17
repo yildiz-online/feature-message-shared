@@ -12,6 +12,5 @@ before_install:
   - docker pull moussavdb/build-java
 
 script:
-  - openssl aes-256-cbc -pass pass:$OPENSSL_PWD -in private-key.gpg.enc -out private-key.gpg -d
   - chmod 777 deploy-maven-central.sh
-  - docker run -v $PWD:/src -w /src moussavdb/build-java ./deploy-maven-central.sh
+  - docker run -v $PWD:/src -w /src moussavdb/build-java openssl aes-256-cbc -pass pass:$OPENSSL_PWD -in private-key.gpg.enc -out private-key.gpg -d && ./deploy-maven-central.sh
