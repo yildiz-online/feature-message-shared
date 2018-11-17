@@ -12,4 +12,4 @@ before_install:
   - docker pull moussavdb/build-java
 
 script:
-  - docker run -v $PWD:/src
+  - docker run -v $PWD:/src moussavdb/build-java
