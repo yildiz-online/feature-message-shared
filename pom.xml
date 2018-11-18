@@ -71,30 +71,4 @@
     </dependency>
   </dependencies>
 
-  <build>
-    <plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-gpg-plugin</artifactId>
-      <version>${maven.plugin.gpg.version}</version>
-      <executions>
-        <execution>
-          <id>sign-artifacts</id>
-          <phase>deploy</phase>
-          <goals>
-            <goal>sign</goal>
-          </goals>
-          <configuration>
-            <gpgArguments>
-              <arg>--pinentry-mode</arg>
-              <arg>loopback</arg>
-              <arg>--no-emit-version</arg>
-            </gpgArguments>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
-    </plugins>
-  </build>
-
 </project>
