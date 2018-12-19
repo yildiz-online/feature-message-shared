@@ -48,7 +48,7 @@ public class MessageListMapper implements ObjectMapper<Collection<Message>> {
     }
 
     @Override
-    public Collection<Message> from(String s) throws MappingException {
+    public Collection<Message> from(String s) {
         return mapper.from(s);
     }
 

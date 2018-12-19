@@ -24,6 +24,7 @@
 
 package be.yildizgames.engine.feature.message;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.model.PlayerId;
 
 /**
@@ -69,9 +70,9 @@ public final class Message {
      */
     public Message(final PlayerId sender, final PlayerId receiver, final String message, final long date, final boolean read) {
         super();
-        assert sender != null;
-        assert receiver != null;
-        assert message != null;
+        ImplementationException.throwForNull(sender);
+        ImplementationException.throwForNull(receiver);
+        ImplementationException.throwForNull(message);
         this.sender = sender;
         this.receiver = receiver;
         this.content = message;

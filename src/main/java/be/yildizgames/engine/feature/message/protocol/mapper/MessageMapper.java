@@ -56,7 +56,7 @@ public class MessageMapper implements ObjectMapper<Message> {
     }
 
     @Override
-    public Message from(String s) throws MappingException {
+    public Message from(String s) {
         ImplementationException.throwForNull(s);
         String[] v = s.split(Separator.VAR_SEPARATOR);
         try {
