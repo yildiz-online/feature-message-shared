@@ -8,6 +8,10 @@ git:
 dist:
   xenial
 
+cache:
+  directories:
+    - $HOME/.m2
+
 env:
   global:
   - secure: Evk8w1E4wE0RIRqnFY0CWgMlvh4beQB+KX4ttO4ncnB6tIR+9f+jmuvCGGohnbfdOXEvT8H1uRgPaA+m6jYcHeD/iwQyQ+O+S8b1pf2GMYf+2maKhIfPdzgnJ828NM3N1rpLW0y1QQV7wJhAT+AXbc/Y4Bzin9m1WjA7rDDaZHQRz5DAkAGjmPI/LlkO8FSCUAdWU6PUvUkaQm/EpVoMfn6GgwjM8b/6mzkJiDSh3NONa0ClXM5uctq0CU0u+OUKjmxqteT0pcu5CiqKyYLd7d7a+b2d8dAsCUDFq8Y5s/4xxQfAZ2EhkkvVFMTJhfp0uTPvKGCQjzh38ljesFc7HR4OnhP6bmfPAB4YQB5c4SZ2UXEIB2mZuB4So+qvultbustIRBxRKDrviu65hdvxlVXK8oZ6j94PuFmsEMlI41DUr9oDwh6vFYfBChb2Bbrwwtvb2zzmfBdRkzL/hdN4I1I8WATLA9fZRhH6m24lI5bkbaHXUViYXVzjuG6397llXSiSsWdht3eeuuvikd2YtOZe4ydRJQaaYJX4icW8Lso1DBNI620yRGqfpuzHdFRYhnRh51UcviXrjoYdfDHB8P6QmAgG4lSVxRT2qyp/IRB+7MQWujgyagM1Fd5Hq7E+eUCmeXnwzHdevAWuCZ+Gvib73v8FgezEIQX+SpcNJec=
@@ -27,4 +31,4 @@ before_install:
   - docker pull moussavdb/build-java
 
 script:
-  - docker run -v $PWD:/src -e BRANCH=$TRAVIS_BRANCH -e OPENSSL_PWD=$OPENSSL_PWD -e GPG_PWD=$GPG_PWD -e GPG_KEY=$GPG_KEY -e OSSRH_USER_TOKEN=$OSSRH_USER_TOKEN -e OSSRH_PWD_TOKEN=$OSSRH_PWD_TOKEN -e SONAR=$SONAR -e SONAR_ORGANIZATION=$SONAR_ORGANIZATION moussavdb/build-java ./deploy-maven-central.sh
+  - docker run -v $PWD:/src -v $HOME/.m2:/root/.m2 -e BRANCH=$TRAVIS_BRANCH -e OPENSSL_PWD=$OPENSSL_PWD -e GPG_PWD=$GPG_PWD -e GPG_KEY=$GPG_KEY -e OSSRH_USER_TOKEN=$OSSRH_USER_TOKEN -e OSSRH_PWD_TOKEN=$OSSRH_PWD_TOKEN -e SONAR=$SONAR -e SONAR_ORGANIZATION=$SONAR_ORGANIZATION moussavdb/build-java ./deploy-maven-central.sh
