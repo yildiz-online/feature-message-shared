@@ -48,12 +48,12 @@ public class MessageListMapper implements ObjectMapper<Collection<Message>> {
     }
 
     @Override
-    public Collection<Message> from(String s) {
+    public final Collection<Message> from(String s) {
         return mapper.from(s);
     }
 
     @Override
-    public String to(Collection<Message> messages) {
+    public final String to(Collection<Message> messages) {
         return mapper.to(messages);
     }
 }

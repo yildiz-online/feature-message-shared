@@ -25,6 +25,9 @@ package be.yildizgames.engine.feature.message.protocol.mapper;
 
 import be.yildizgames.common.exception.business.BusinessException;
 
+/**
+ * @author Grégory Van den Borre
+ */
 public class MappingException extends BusinessException {
 
     MappingException(String message) {

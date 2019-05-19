@@ -56,7 +56,7 @@ public class MessageMapper implements ObjectMapper<Message> {
     }
 
     @Override
-    public Message from(String s) {
+    public final Message from(String s) {
         ImplementationException.throwForNull(s);
         String[] v = s.split(Separator.VAR_SEPARATOR);
         try {
@@ -74,7 +74,7 @@ public class MessageMapper implements ObjectMapper<Message> {
     }
 
     @Override
-    public String to(Message message) {
+    public final String to(Message message) {
         ImplementationException.throwForNull(message);
         return PlayerIdMapper.getInstance().to(message.getSender())
                 + Separator.VAR_SEPARATOR

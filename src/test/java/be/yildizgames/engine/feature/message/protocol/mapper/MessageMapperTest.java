@@ -40,4 +40,5 @@ public class MessageMapperTest extends BaseMapperTest<Message> {
                 123,
                 true));
     }
+
 }

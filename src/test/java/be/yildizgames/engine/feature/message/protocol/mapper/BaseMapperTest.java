@@ -72,5 +72,4 @@ public abstract class BaseMapperTest<T>{
     public void toNull() {
         Assertions.assertThrows(ImplementationException.class, () -> mapper.to(null));
     }
-
 }

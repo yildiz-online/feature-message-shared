@@ -42,4 +42,5 @@ public class MessageListMapperTest extends BaseMapperTest<Collection<Message>> {
                 new Message(PlayerId.valueOf(1), PlayerId.valueOf(2), "ok3", 12, false)
         ));
     }
+
 }

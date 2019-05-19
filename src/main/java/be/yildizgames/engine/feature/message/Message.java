@@ -108,7 +108,7 @@ public final class Message {
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         final int PRIME = 31;
         int result = 1;
         result = (int) (PRIME * result + this.date);
@@ -120,7 +120,7 @@ public final class Message {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
