@@ -24,8 +24,9 @@
 
 package be.yildizgames.engine.feature.message;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.model.PlayerId;
+
+import java.util.Objects;
 
 /**
  * Message sent from a player to another.
@@ -70,12 +71,9 @@ public final class Message {
      */
     public Message(final PlayerId sender, final PlayerId receiver, final String message, final long date, final boolean read) {
         super();
-        ImplementationException.throwForNull(sender);
-        ImplementationException.throwForNull(receiver);
-        ImplementationException.throwForNull(message);
-        this.sender = sender;
-        this.receiver = receiver;
-        this.content = message;
+        this.sender = Objects.requireNonNull(sender);
+        this.receiver = Objects.requireNonNull(receiver);
+        this.content = Objects.requireNonNull(message);
         this.date = date;
         this.read = read;
     }

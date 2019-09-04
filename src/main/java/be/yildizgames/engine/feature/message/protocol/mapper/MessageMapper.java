@@ -24,7 +24,6 @@
 
 package be.yildizgames.engine.feature.message.protocol.mapper;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import be.yildizgames.common.mapping.BooleanMapper;
 import be.yildizgames.common.mapping.LongMapper;
 import be.yildizgames.common.mapping.ObjectMapper;
@@ -57,34 +56,32 @@ public class MessageMapper implements ObjectMapper<Message> {
 
     @Override
     public final Message from(String s) {
-        ImplementationException.throwForNull(s);
         String[] v = s.split(Separator.VAR_SEPARATOR);
         try {
             return new Message(PlayerIdMapper.getInstance().from(v[0]),
                     PlayerIdMapper.getInstance().from(v[1]),
-                    v[2].replaceAll(REP_AMP, "&")
-                        .replaceAll(REP_AT, "@")
-                        .replaceAll(REP_HSH, "#")
-                        .replaceAll(REP_UND, "_"),
+                    v[2].replace(REP_AMP, "&")
+                        .replace(REP_AT, "@")
+                        .replace(REP_HSH, "#")
+                        .replace(REP_UND, "_"),
                     LongMapper.getInstance().from(v[3]),
                     BooleanMapper.getInstance().from(v[4]));
         } catch (IndexOutOfBoundsException e) {
-            throw new MappingException(e);
+            throw new IllegalArgumentException(e);
         }
     }
 
     @Override
     public final String to(Message message) {
-        ImplementationException.throwForNull(message);
         return PlayerIdMapper.getInstance().to(message.getSender())
                 + Separator.VAR_SEPARATOR
                 + PlayerIdMapper.getInstance().to(message.getReceiver())
                 + Separator.VAR_SEPARATOR
                 + message.getMessage()
-                        .replaceAll("&", REP_AMP)
-                        .replaceAll("#", REP_HSH)
-                        .replaceAll("_", REP_UND)
-                        .replaceAll("@", REP_AT)
+                        .replace("&", REP_AMP)
+                        .replace("#", REP_HSH)
+                        .replace("_", REP_UND)
+                        .replace("@", REP_AT)
                 + Separator.VAR_SEPARATOR
                 + LongMapper.getInstance().to(message.getDate())
                 + Separator.VAR_SEPARATOR
