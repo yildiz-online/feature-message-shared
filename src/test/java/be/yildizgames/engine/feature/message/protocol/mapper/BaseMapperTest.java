@@ -33,25 +33,25 @@ import org.junit.jupiter.api.Test;
 /**
  * @author Grégory Van den Borre
  */
-public abstract class BaseMapperTest<T>{
+abstract class BaseMapperTest<T>{
 
     private final ObjectMapper<T> mapper;
     private final T baseObject;
 
-    protected BaseMapperTest(ObjectMapper<T> mapper, T baseObject) {
+    BaseMapperTest(ObjectMapper<T> mapper, T baseObject) {
         this.mapper = mapper;
         this.baseObject = baseObject;
     }
 
     @Test
-    public void happyFlow() {
+    void happyFlow() {
         String to = mapper.to(baseObject);
         T from = mapper.from(to);
         Assertions.assertEquals(baseObject, from);
     }
 
     @Test
-    public void tooShort() {
+    void tooShort() {
         String to = mapper.to(baseObject);
         if (to.contains(Separator.OBJECTS_SEPARATOR)) {
             Assertions.assertThrows(IllegalArgumentException.class, () -> mapper.from(to.substring(0, to.indexOf(Separator.OBJECTS_SEPARATOR))));
@@ -63,12 +63,12 @@ public abstract class BaseMapperTest<T>{
     }
 
     @Test
-    public void fromNull() {
+    void fromNull() {
         Assertions.assertThrows(NullPointerException.class, () -> mapper.from(null));
     }
 
     @Test
-    public void toNull() {
+    void toNull() {
         Assertions.assertThrows(NullPointerException.class, () -> mapper.to(null));
     }
 }

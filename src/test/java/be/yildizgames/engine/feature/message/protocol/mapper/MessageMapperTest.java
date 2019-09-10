@@ -30,9 +30,9 @@ import be.yildizgames.engine.feature.message.Message;
 /**
  * @author Grégory Van den Borre
  */
-public class MessageMapperTest extends BaseMapperTest<Message> {
+class MessageMapperTest extends BaseMapperTest<Message> {
 
-    public MessageMapperTest() {
+    MessageMapperTest() {
         super(MessageMapper.getInstance(), new Message(
                 PlayerId.valueOf(2),
                 PlayerId.valueOf(8),

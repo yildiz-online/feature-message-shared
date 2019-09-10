@@ -33,9 +33,9 @@ import java.util.Collection;
 /**
  * @author Grégory Van den Borre
  */
-public class MessageListMapperTest extends BaseMapperTest<Collection<Message>> {
+class MessageListMapperTest extends BaseMapperTest<Collection<Message>> {
 
-    public MessageListMapperTest() {
+    MessageListMapperTest() {
         super(MessageListMapper.getInstance(), Arrays.asList(
                 new Message(PlayerId.valueOf(1), PlayerId.valueOf(2), "ok", 1, true),
                 new Message(PlayerId.valueOf(1), PlayerId.valueOf(4), "ok2", 1, true),

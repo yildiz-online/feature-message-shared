@@ -22,7 +22,7 @@
  *
  */
 
-module be.yildizgames.feature.message.shared {
+open module be.yildizgames.feature.message.shared {
 
     requires be.yildizgames.common.model;
     requires be.yildizgames.common.mapping.model;
