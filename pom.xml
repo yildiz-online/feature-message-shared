@@ -30,7 +30,7 @@
 
   <name>Yildiz-Engine Feature Message Shared</name>
   <description>Feature for messages.</description>
-  <url>https://bitbucket.org/yildiz-engine-team/feature-message-shared</url>
+  <url>https://github.com/yildiz-online/feature-message-shared</url>
 
   <artifactId>feature-message-shared</artifactId>
   <version>1.0.1-SNAPSHOT</version>
@@ -38,9 +38,9 @@
   <packaging>jar</packaging>
   <inceptionYear>2017</inceptionYear>
   <scm>
-    <connection>scm:git:https://bitbucket.org/yildiz-engine-team/feature-message-shared</connection>
-    <developerConnection>scm:git:https://bitbucket.org/yildiz-engine-team/feature-message-shared</developerConnection>
-    <url>https://bitbucket.org/yildiz-engine-team/feature-message-shared</url>
+    <connection>scm:git:https://github.com/yildiz-online/feature-message-shared</connection>
+    <developerConnection>scm:git:https://github.com/yildiz-online/feature-message-shared</developerConnection>
+    <url>https://github.com/yildiz-online/feature-message-shared</url>
   </scm>
   <parent>
     <groupId>be.yildiz-games</groupId>
